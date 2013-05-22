@@ -1,5 +1,3 @@
-require 'csv'
-
 class HoleLayout
   attr_reader :holes
 
@@ -9,18 +7,3 @@ class HoleLayout
 
 end
 
-class Loader
-
-  def initialize(file)
-    @file = file
-  end
-
-  def hole_array
-    arr = []
-    CSV.foreach(@file) do |line|
-      arr = line
-    end
-    arr.map { |elem| elem.to_i }
-  end
-
-end
