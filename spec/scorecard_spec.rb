@@ -35,6 +35,24 @@ describe Scorecard do
 
   end
 
+  describe "total_score" do
+    it "sums up the player score" do
+      expect(scorecard.total_score).to eql(72)
+    end
+  end
+
+  describe "total_par" do
+    it "sums up the course par" do
+      expect(scorecard.total_par).to eql(72)
+    end
+  end
+
+  describe "over_under" do
+    it "gets the difference between the player score and par" do
+      expect(scorecard.over_under).to eql(0)
+    end
+  end
+
   describe 'term_score method' do
     it "should return par" do
       expect(scorecard.term_score(2,2)).to eql('- Par')

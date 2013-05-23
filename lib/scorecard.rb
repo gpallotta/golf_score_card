@@ -10,14 +10,24 @@ class Scorecard
   def output
     str = "\n"
     str << "==#{player}\n"
-    total_score = scores.inject(:+)
-    total_par = hole_layout.holes.inject(:+)
     scores.each_with_index do |score, i|
       str << "Hole #{i+1}: #{score} #{term_score(score,hole_layout.holes[i])}\n"
     end
     str << "...\n\nTotal score: #{total_score}\n"
     str << "#{total_score - total_par}\n=="
     str
+  end
+
+  def total_score
+    scores.inject(:+)
+  end
+
+  def total_par
+    hole_layout.holes.inject(:+)
+  end
+
+  def over_under
+    total_score - total_par
   end
 
   def term_score(score, par)
